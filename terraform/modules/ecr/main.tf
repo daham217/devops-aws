@@ -11,6 +11,7 @@ locals {
 resource "aws_ecr_repository" "app" {
   name                 = "${local.name_prefix}/nextjs-app"
   image_tag_mutability = "MUTABLE"
+  force_delete         = true
 
   # Scan on push — catches known CVEs
   image_scanning_configuration {
